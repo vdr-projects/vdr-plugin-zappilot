@@ -1,0 +1,14 @@
+#ifndef __ZAPPILOTCONFIG_H
+#define __ZAPPILOTCONFIG_H
+
+struct sZappilotConfig
+{
+   int closeonswitch;
+   int hidemenu;
+   int fastbrowse;
+};
+
+extern sZappilotConfig config;
+
+// #define DEBUG
+#endif                           //__ZAPPILOTCONFIG_H

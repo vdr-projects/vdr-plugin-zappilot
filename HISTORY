@@ -1,0 +1,25 @@
+VDR Plugin 'zappilot' Revision History
+-----------------------------------
+2010-08-06:Version 0.0.4
+  - Renamed plugin to zappilot
+  - Added fast browse
+  - Moved homepage to http://projects.vdr-developer.org/projects/show/plg-zappilot
+
+2007-08-21: Version 0.0.3 
+  - Added support for gettext (VDR >= 1.5.7)
+  - Clean the code, correct minors bugs
+
+2006-04-30: Version 0.0.2 
+  - plugin is accessible from Main Menu
+  - VDR's new APIVERSION feature
+  - Maintenance release for vdr-1.4+
+
+2006-03-28: Version 0.0.1alpha2
+  - Add an option to Hide the Main Menu entry
+  - Clean the Setup Menu
+
+2006-02-21: Version 0.0.1alpha1
+  - Initial Version
+  - Based on pilot Version 0.0.8
+  - Maintenance release for vdr-1.3.18 (and up?)
+    Provided by free-x and Thomas Gunther
