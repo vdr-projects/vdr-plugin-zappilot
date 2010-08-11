@@ -14,7 +14,7 @@
 
 static const char *VERSION        = "0.0.4";
 static const char *DESCRIPTION    = trNOOP("A zapping co-pilot");
-static const char *MAINMENUENTRY  = trNOOP("Zappilot");
+static const char *MAINMENUENTRY  = trNOOP("ZapPilot");
 
 class cPluginZappilot : public cPlugin
 {

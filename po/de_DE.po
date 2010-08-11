@@ -18,7 +18,7 @@ msgstr ""
 msgid "A zapping co-pilot"
 msgstr "Ein Zapping-Kopilot"
 
-msgid "Zappilot"
+msgid "ZapPilot"
 msgstr ""
 
 msgid "Close on OK"
