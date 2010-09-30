@@ -1,11 +1,16 @@
 #ifndef __ZAPPILOTCONFIG_H
 #define __ZAPPILOTCONFIG_H
 
+#include <vdr/plugin.h>
+
 struct sZappilotConfig
 {
    int closeonswitch;
    int hidemenu;
    int fastbrowse;
+   int switchtimer;
+   int switchminsbefore;
+   cPlugin* pEPGSearch;
 };
 
 extern sZappilotConfig config;

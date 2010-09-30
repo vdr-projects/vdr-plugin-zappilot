@@ -13,6 +13,19 @@
 
 extern int PilotChannelNumber;
 
+// Data structure for service "Epgsearch-switchtimer-v1.0"
+struct Epgsearch_switchtimer_v1_0
+{
+   // in
+   const cEvent* event;
+   int mode;                     // mode (0=query existance, 1=add/modify, 2=delete)
+   // in/out
+   int switchMinsBefore;
+   int announceOnly;
+   // out
+   bool success;                 // result
+};
+
 cZappilotOsd::cZappilotOsd(void):cOsdObject(true)
 {
    osd = cOsdProvider::NewOsd(0, 0);
@@ -76,6 +89,77 @@ void cZappilotOsd::DisplayChannel(const cChannel *Channel)
 static int CompareEventTime(const void *p1, const void *p2)
 {
    return (int)((*(cEvent **)p1)->StartTime() - (*(cEvent **)p2)->StartTime());
+}
+
+
+void cZappilotOsd::AddDelSwitchTimer(const cEvent *event)
+{
+   bool SwitchTimerExits = false;
+   if (config.pEPGSearch && event)
+   {
+      Epgsearch_switchtimer_v1_0* serviceData = new Epgsearch_switchtimer_v1_0;
+      serviceData->event = event;
+      serviceData->mode = 0;
+      if (config.pEPGSearch->Service("Epgsearch-switchtimer-v1.0", serviceData))
+      {
+         SwitchTimerExits=serviceData->success;
+         delete serviceData;
+      }
+      else
+      {
+         esyslog("[ZapPilot] EPGSearch does not support Epgsearch-switchtimer-v1.0 service!");
+         delete serviceData;
+
+      }
+      if (!SwitchTimerExits)
+      {
+         serviceData = new Epgsearch_switchtimer_v1_0;
+         serviceData->event = event;
+         serviceData->mode = 1;
+         serviceData->switchMinsBefore = config.switchminsbefore;
+         serviceData->announceOnly = 0;
+         if (config.pEPGSearch->Service("Epgsearch-switchtimer-v1.0", serviceData))
+         {
+            if (serviceData->success)
+            {
+               Skins.Message(mtInfo, tr("Switch timer added!"));
+               delete serviceData;
+            }
+         }
+         else
+         {
+            esyslog("[ZapPilot] EPGSearch does not support Epgsearch-switchtimer-v1.0 service!");
+            delete serviceData;
+            return;
+         }
+      }
+      else
+      {
+         serviceData = new Epgsearch_switchtimer_v1_0;
+         serviceData->event = event;
+         serviceData->mode = 2;
+         serviceData->switchMinsBefore = 1;
+         serviceData->announceOnly = false;
+         if (config.pEPGSearch->Service("Epgsearch-switchtimer-v1.0", serviceData))
+         {
+            if (serviceData->success)
+            {
+               Skins.Message(mtInfo, tr("Switch timer deleted!"));
+               delete serviceData;
+            }
+         }
+         else
+         {
+            esyslog("[ZapPilot] EPGSearch does not support Epgsearch-switchtimer-v1.0 service!");
+            delete serviceData;
+            return;
+         }
+      }
+   }
+   else
+   {
+      esyslog("[ZapPilot] EPGSearch does not exist; switch timer is not possible!");
+   }
 }
 
 
@@ -238,12 +322,13 @@ eOSState cZappilotOsd::ProcessKey(eKeys Key)
             return osEnd;
          }
          case k0:
-            if (number == 0)
+         {
+            if (number == 0 && config.switchtimer)
             {
-               // keep the "Toggle channels" function working
-               //cRemote::Put(Key);
+               AddDelSwitchTimer(Present);
                return osContinue;
             }
+         }
          case k1 ... k9:
             if (number >= 0)
             {
@@ -430,21 +515,70 @@ eOSState cZappilotOsd::ProcessKey(eKeys Key)
          case kYellow|k_Repeat:
          case kYellow:
          {
-            // Scroll back in time
-            UpdateEPGInfo(3);
-            DrawMenu(0,0);
-            return osContinue;
+            if (!config.fastbrowse)
+            {
+               // Scroll back in time
+               UpdateEPGInfo(3);
+               DrawMenu(0,0);
+               return osContinue;
+               break;
+            }
          }
-         break;
          case kBlue|k_Repeat:
          case kBlue:
-         {
-            // Scroll back in time
-            UpdateEPGInfo(2);
-            DrawMenu(0,0);
-            return osContinue;
-         }
-         break;
+            if (!config.fastbrowse)
+            {
+               // Scroll back in time
+               UpdateEPGInfo(2);
+               DrawMenu(0,0);
+               return osContinue;
+               break;
+            }
+            else
+            {
+               if (group < 0)
+               {
+                  cChannel *channel = Channels.GetByNumber(PilotChannelNumber);
+                  if (channel)
+                     group = channel->Index();
+               }
+               if (group >= 0)
+               {
+                  int SaveGroup = group;
+                  if (NORMALKEY(Key) == kBlue)
+                  {
+                     group = Channels.GetNextGroup(group);
+                  }
+                  else
+                  {
+                     group = Channels.GetPrevGroup(group < 1 ? 1 : group);
+                  }
+                  if (group < 0)
+                     group = SaveGroup;
+                  cChannel *channel = Channels.Get(group);
+                  if (channel)
+                  {
+                     //DisplayChannel(channel);
+                     if (!channel->GroupSep())
+                        group = -1;
+                     else
+                     {
+                        const char *groupName;
+                        groupName = channel->Name();
+                        channel = (cChannel *)channel->Next();
+                        while (channel->GroupSep())
+                        {
+                           channel = (cChannel *)channel->Next();
+                        }
+                        PilotChannelNumber = channel->Number();
+                        UpdateEPGInfo(1);
+                        DrawMenu(-16,1);
+                     }
+                  }
+               }
+               lastTime = cTimeMs::Now();
+               break;
+            }
          default:
             return state;
       };

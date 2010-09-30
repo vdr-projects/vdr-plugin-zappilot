@@ -50,6 +50,7 @@ class cZappilotOsd : public cOsdObject
       void CursorDown();
       void CursorOK();
 
+      void AddDelSwitchTimer(const cEvent *event);
       void UpdateEPGInfo(int NowPrevNext);
       void DrawMenu(int delta, int highlight);
       void DisplayBitmap(void);
@@ -58,5 +59,4 @@ class cZappilotOsd : public cOsdObject
       void DisplayTimer(void);
       void DisplayChannel(const cChannel *Channel);
 };
-
 #endif                           //__ZAPPILOTOSD_H

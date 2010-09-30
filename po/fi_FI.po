@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: VDR 1.5.7\n"
 "Report-Msgid-Bugs-To: <see README>\n"
-"POT-Creation-Date: 2010-08-11 20:30+0200\n"
+"POT-Creation-Date: 2010-09-30 17:11+0200\n"
 "PO-Revision-Date: 2007-08-21 23:24+0200\n"
 "Last-Translator: Rolf Ahrenberg <rahrenbe@cc.hut.fi>\n"
 "Language-Team: <vdr@linuxtv.org>\n"
@@ -24,17 +24,23 @@ msgstr ""
 msgid "ZapPilot"
 msgstr ""
 
+msgid "Switch timer added!"
+msgstr ""
+
+msgid "Switch timer deleted!"
+msgstr ""
+
 msgid "Close on OK"
 msgstr "Sulje painamalla OK"
 
 msgid "Hide main menu entry"
 msgstr "Piilota valinta p‰‰valikosta"
 
-msgid "no"
-msgstr ""
-
-msgid "yes"
-msgstr ""
-
 msgid "Fast browse"
 msgstr ""
+
+msgid "Switch timer"
+msgstr ""
+
+msgid "Switch ... minutes before start"
+msgstr "Vaihda ... minuuttia ennen alkua"

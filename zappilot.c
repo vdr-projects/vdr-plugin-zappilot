@@ -48,7 +48,9 @@ cPluginZappilot::cPluginZappilot(void)
    config.closeonswitch=1;
    config.hidemenu=0;
    config.fastbrowse=0;
-   
+   config.switchtimer=0;
+   config.switchminsbefore=1;
+   config.pEPGSearch=NULL;
 }
 
 
@@ -76,6 +78,12 @@ bool cPluginZappilot::Start(void)
 {
    // Start any background activities the plugin shall perform.
    // Default values for setup
+   config.pEPGSearch = cPluginManager::GetPlugin("epgsearch");
+   if (!config.pEPGSearch)
+   {
+      config.switchtimer=0;
+      esyslog("[ZapPilot] EPGSearch does not exist; switch timers are disabled!");
+   }
    return true;
 }
 
@@ -106,6 +114,8 @@ bool cPluginZappilot::SetupParse(const char *Name, const char *Value)
    if (!strcasecmp(Name, "CloseOnSwitch")) config.closeonswitch = atoi(Value);
    else if (!strcasecmp(Name, "HideMenu")) config.hidemenu = atoi(Value);
    else if (!strcasecmp(Name, "FastBrowse")) config.fastbrowse = atoi(Value);
+   else if (!strcasecmp(Name, "SwitchTimer")) config.switchtimer = atoi(Value);
+   else if (!strcasecmp(Name, "SwitchMinsBefore")) config.switchminsbefore = atoi(Value);
    else
       return false;
 

@@ -15,16 +15,25 @@ cZappilotSetup::cZappilotSetup(void)
    CloseOnSwitch = config.closeonswitch;
    Hidemenu      = config.hidemenu;
    FastBrowse    = config.fastbrowse;
+   SwitchTimer   = config.switchtimer;
+   SwitchMinsBefore = config.switchminsbefore;
 
-   Add(new cMenuEditBoolItem(tr("Close on OK"), &CloseOnSwitch));
-   Add(new cMenuEditBoolItem(  tr("Hide main menu entry"), &Hidemenu, tr("no"), tr("yes")));
-   Add(new cMenuEditBoolItem(  tr("Fast browse"), &FastBrowse, tr("no"), tr("yes")));
+   Add(new cMenuEditBoolItem( tr("Close on OK"), &CloseOnSwitch));
+   Add(new cMenuEditBoolItem( tr("Hide main menu entry"), &Hidemenu, trVDR("no"), trVDR("yes")));
+   Add(new cMenuEditBoolItem( tr("Fast browse"), &FastBrowse, trVDR("no"), trVDR("yes")));
+   if (config.pEPGSearch)
+   {
+      Add(new cMenuEditBoolItem( tr("Switch timer"), &SwitchTimer, trVDR("no"), trVDR("yes")));
+      Add(new cMenuEditIntItem( tr("Switch ... minutes before start"), &SwitchMinsBefore));
+   }
 }
 
 
 void cZappilotSetup::Store(void)
 {
    SetupStore("CloseOnSwitch", config.closeonswitch = CloseOnSwitch);
-   SetupStore("Hidemenu",     config.hidemenu = Hidemenu);
-   SetupStore("FastBrowse",     config.fastbrowse = FastBrowse);
+   SetupStore("Hidemenu",      config.hidemenu = Hidemenu);
+   SetupStore("FastBrowse",    config.fastbrowse = FastBrowse);
+   SetupStore("SwitchTimer",   config.switchtimer = SwitchTimer);
+   SetupStore("SwitchMinsBefore",   config.switchminsbefore = SwitchMinsBefore);
 }

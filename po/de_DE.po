@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: VDR 1.5.7\n"
 "Report-Msgid-Bugs-To: <see README>\n"
-"POT-Creation-Date: 2010-08-04 22:06+0200\n"
+"POT-Creation-Date: 2010-09-30 17:11+0200\n"
 "PO-Revision-Date: 2007-08-21 23:24+0200\n"
 "Last-Translator: Klaus Schmidinger <kls@cadsoft.de>\n"
 "Language-Team: <vdr@linuxtv.org>\n"
@@ -21,18 +21,23 @@ msgstr "Ein Zapping-Kopilot"
 msgid "ZapPilot"
 msgstr ""
 
+msgid "Switch timer added!"
+msgstr "Umschalttimer angelegt!"
+
+msgid "Switch timer deleted!"
+msgstr "Umschalttimer gelöscht!"
+
 msgid "Close on OK"
 msgstr "Schließen bei OK"
 
 msgid "Hide main menu entry"
 msgstr "Hauptmenüeintrag verstecken"
 
-msgid "no"
-msgstr "nein"
-
-msgid "yes"
-msgstr "ja"
-
 msgid "Fast browse"
 msgstr "Schnell navigieren"
 
+msgid "Switch timer"
+msgstr "Umschalttimer"
+
+msgid "Switch ... minutes before start"
+msgstr "Umschalten ... Minuten vor Start"
