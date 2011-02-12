@@ -28,10 +28,8 @@ TMPDIR = /tmp
 
 ### Make sure that necessary options are included:
 
-  ### For backward compatibility vdr-1.6.0:
-  CFLAGS   += -fPIC
-  CXXFLAGS += -fPIC
-  DEFINES += -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE
+### For backward compatibility vdr-1.6.0:
+CXXFLAGS += -fPIC
 
 -include $(VDRDIR)/Make.global
 
