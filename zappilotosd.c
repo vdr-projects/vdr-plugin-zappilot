@@ -268,6 +268,7 @@ void cZappilotOsd::Show()
 {
    // find the actual current
    cChannel *Channel =  Channels.GetByNumber(cDevice::PrimaryDevice()->CurrentChannel());
+   currentChannel = Channels.GetByNumber(cDevice::PrimaryDevice()->CurrentChannel());
 
    if (Channel)
    {
@@ -367,6 +368,13 @@ eOSState cZappilotOsd::ProcessKey(eKeys Key)
                   group = channel->Index()-1;
                break;
             }
+            else if (config.fastbrowsealt)
+            {
+               // Scroll back in time
+               UpdateEPGInfo(3);
+               DrawMenu(0,0);
+               return osContinue;
+            }
          case kRight|k_Repeat:
          case kRight:
             if (config.fastbrowse)
@@ -376,6 +384,13 @@ eOSState cZappilotOsd::ProcessKey(eKeys Key)
                if (channel)
                   group = channel->Index()-1;
                break;
+            }
+            else if (config.fastbrowsealt)
+            {
+               // Scroll forward in time
+               UpdateEPGInfo(2);
+               DrawMenu(0,0);
+               return osContinue;
             }
             else
             {
@@ -678,10 +693,13 @@ void cZappilotOsd::CursorDown()
 void cZappilotOsd::CursorOK()
 {
    DrawMenu(0,2);
-   cChannel *Channel =  Channels.GetByNumber(PilotChannelNumber);
-   if (Channel)
+   if (currentChannel != Channels.GetByNumber(PilotChannelNumber))
    {
-      cDevice::PrimaryDevice()->SwitchChannel(Channel, true);
+     cChannel *Channel =  Channels.GetByNumber(PilotChannelNumber);
+     if (Channel)
+     {
+        cDevice::PrimaryDevice()->SwitchChannel(Channel, true);
+     }
    }
 }
 

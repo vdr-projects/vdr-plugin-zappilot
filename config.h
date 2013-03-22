@@ -8,6 +8,7 @@ struct sZappilotConfig
    int closeonswitch;
    int hidemenu;
    int fastbrowse;
+   int fastbrowsealt;
    int switchtimer;
    int switchminsbefore;
    cPlugin* pEPGSearch;

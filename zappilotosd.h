@@ -39,6 +39,7 @@ class cZappilotOsd : public cOsdObject
       int offset;
       int lines;
       int type;
+      cChannel* currentChannel;
 
    public:
       cZappilotOsd(void);

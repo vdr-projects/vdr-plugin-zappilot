@@ -1,18 +1,19 @@
-# VDR plugin language source file.
-# Copyright (C) 2007 Klaus Schmidinger <kls@cadsoft.de>
+# VDR language source file.
+# Copyright (C) 2013 Klaus Schmidinger <vdr@tvdr.de>
 # This file is distributed under the same license as the VDR package.
-# Klaus Schmidinger <kls@cadsoft.de>, 2000
+# Klaus Schmidinger <vdr@tvdr.de>, 2000-2008
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: VDR 1.5.7\n"
+"Project-Id-Version: VDR 2.0.0\n"
 "Report-Msgid-Bugs-To: <see README>\n"
-"POT-Creation-Date: 2010-09-30 17:11+0200\n"
-"PO-Revision-Date: 2007-08-21 23:24+0200\n"
-"Last-Translator: Klaus Schmidinger <kls@cadsoft.de>\n"
-"Language-Team: <vdr@linuxtv.org>\n"
+"POT-Creation-Date: 2013-03-16 13:28+0100\n"
+"PO-Revision-Date: 2010-01-16 16:46+0100\n"
+"Last-Translator: gnapheus <>\n"
+"Language-Team: German <vdr@linuxtv.org>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-15\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "A zapping co-pilot"
@@ -25,16 +26,19 @@ msgid "Switch timer added!"
 msgstr "Umschalttimer angelegt!"
 
 msgid "Switch timer deleted!"
-msgstr "Umschalttimer gelöscht!"
+msgstr "Umschalttimer gelÃ¶scht!"
 
 msgid "Close on OK"
-msgstr "Schließen bei OK"
+msgstr "SchlieÃŸen bei OK"
 
 msgid "Hide main menu entry"
-msgstr "Hauptmenüeintrag verstecken"
+msgstr "HauptmenÃ¼eintrag verstecken"
 
 msgid "Fast browse"
 msgstr "Schnell navigieren"
+
+msgid "Fast browse (alt. key layout)"
+msgstr "Schnell navigieren (alt. Tastenbelegung)"
 
 msgid "Switch timer"
 msgstr "Umschalttimer"

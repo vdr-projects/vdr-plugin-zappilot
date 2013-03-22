@@ -12,7 +12,7 @@
 
 #include <vdr/plugin.h>
 
-static const char *VERSION        = "0.0.4";
+static const char *VERSION        = "0.0.5";
 static const char *DESCRIPTION    = trNOOP("A zapping co-pilot");
 static const char *MAINMENUENTRY  = trNOOP("ZapPilot");
 
@@ -48,6 +48,7 @@ cPluginZappilot::cPluginZappilot(void)
    config.closeonswitch=1;
    config.hidemenu=0;
    config.fastbrowse=0;
+   config.fastbrowsealt=0;
    config.switchtimer=0;
    config.switchminsbefore=1;
    config.pEPGSearch=NULL;
@@ -114,6 +115,7 @@ bool cPluginZappilot::SetupParse(const char *Name, const char *Value)
    if (!strcasecmp(Name, "CloseOnSwitch")) config.closeonswitch = atoi(Value);
    else if (!strcasecmp(Name, "HideMenu")) config.hidemenu = atoi(Value);
    else if (!strcasecmp(Name, "FastBrowse")) config.fastbrowse = atoi(Value);
+   else if (!strcasecmp(Name, "FastBrowseAlt")) config.fastbrowsealt = atoi(Value);
    else if (!strcasecmp(Name, "SwitchTimer")) config.switchtimer = atoi(Value);
    else if (!strcasecmp(Name, "SwitchMinsBefore")) config.switchminsbefore = atoi(Value);
    else

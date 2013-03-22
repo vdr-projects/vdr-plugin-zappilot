@@ -9,6 +9,7 @@ class cZappilotSetup : public cMenuSetupPage
       int CloseOnSwitch;
       int Hidemenu;
       int FastBrowse;
+      int FastBrowseAlt;
       int SwitchTimer;
       int SwitchMinsBefore;
    protected:

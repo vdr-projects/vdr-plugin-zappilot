@@ -1,18 +1,19 @@
-# VDR plugin language source file.
-# Copyright (C) 2007 Klaus Schmidinger <kls@cadsoft.de>
+# VDR language source file.
+# Copyright (C) 2013 Klaus Schmidinger <vdr@tvdr.de>
 # This file is distributed under the same license as the VDR package.
-# Ruben Nunez Francisco <ruben.nunez@tang-it.com>, 2002
+# Ruben Nunez Francisco <ruben.nunez@tang-it.com> 2007
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: VDR 1.5.7\n"
+"Project-Id-Version: VDR 2.0.0\n"
 "Report-Msgid-Bugs-To: <see README>\n"
-"POT-Creation-Date: 2010-09-30 17:11+0200\n"
+"POT-Creation-Date: 2013-03-16 13:01+0100\n"
 "PO-Revision-Date: 2007-08-21 23:24+0200\n"
 "Last-Translator: Ruben Nunez Francisco <ruben.nunez@tang-it.com>\n"
 "Language-Team: <vdr@linuxtv.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-15\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "A zapping co-pilot"
@@ -31,9 +32,12 @@ msgid "Close on OK"
 msgstr ""
 
 msgid "Hide main menu entry"
-msgstr "Ocultar en el menú principal"
+msgstr "Ocultar en el menÃº principal"
 
 msgid "Fast browse"
+msgstr ""
+
+msgid "Fast browse (alt. key layout)"
 msgstr ""
 
 msgid "Switch timer"

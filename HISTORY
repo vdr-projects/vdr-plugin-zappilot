@@ -1,11 +1,15 @@
 VDR Plugin 'zappilot' Revision History
------------------------------------
-2010-??-??:Version 0.0.5
-  - reformated code
+--------------------------------------
+2013-03-17:Version 0.0.5
+  - skip changing channel when pressing OK button on the same channel
+  - added alternative key layout for fast browse mode 
+    (up/down switches channels, left/right next/previous epg item)
+  - updated Makefile for vdr-1.7.34+
+  - reformatted code
   - added support for epgsearch switch timer
   - in fast browse mode yellow and blue buttons now change the channel group
 
-2010-08-06:Version 0.0.4
+2010-08-06: Version 0.0.4
   - Renamed plugin to zappilot
   - Added fast browse
   - Moved homepage to http://projects.vdr-developer.org/projects/show/plg-zappilot

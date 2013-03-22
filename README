@@ -35,7 +35,7 @@ User1     @zappilot
 
 Customization:
 -------------
-Pilot plugin can be tuned to your own preferences.
+Zappilot plugin can be tuned to your own preferences.
 Go to Configuration/Plugins/zappilot to access the setup menu.
 Hide main menu entry    : Hide the plugin entry in the main menu
 Close on OK             : Close the Pilot plugin when pressing OK button 
@@ -43,6 +43,10 @@ Close on OK             : Close the Pilot plugin when pressing OK button
                           Otherwise, switch to the channel but keep 
                           the pilot opened.
 Fast browse             : Changes keys for faster EPG browsing
+
+Fast browse (alt. key layout) :
+                          like fast browse mode but up/down key switches channel and left/right the epg entries
+
 Switch timer		: If the plugin epgsearch is found, switch timer can
                           be set by pressing 0. 
 Switch ... minutes
@@ -56,7 +60,7 @@ DOWN   : go one channel down
 LEFT   : go prev group
 RIGHT  : go next group
 OK     : switch to the selected channel
-BACK   : exit Pilotskin plugin
+BACK   : exit Zappilot plugin
 RED    : edit a timer
 GREEN  : Show extra infos
 YELLOW : previous event
@@ -70,14 +74,28 @@ DOWN   : next event
 LEFT   : prev channel
 RIGHT  : next channel up go next group
 OK     : switch to the selected channel
-BACK   : exit Pilotskin plugin
+BACK   : exit Zappilot plugin
 RED    : edit a timer
 GREEN  : Show extra infos
 YELLOW : go prev group
 BLUE   : go next group
 0      : adds/deletes epgsearch switch timer
 
+Usage fast browse (alt. key layout):
+-----------------
+UP     : next channel
+DOWN   : prev channel
+LEFT   : next event
+RIGHT  : prev event
+OK     : switch to the selected channel
+BACK   : exit Zappilot plugin
+RED    : edit a timer
+GREEN  : Show extra infos
+YELLOW : go prev group
+BLUE   : go next group
+0      : adds/deletes epgsearch switch timer
    
 To do:
------
+------
+
 
