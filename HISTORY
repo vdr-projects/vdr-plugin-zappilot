@@ -1,8 +1,12 @@
 VDR Plugin 'zappilot' Revision History
 --------------------------------------
-2013-03-17:Version 0.0.5
+
+2021-04-24: Version 0.0.6
+  - Support for VDR >= 2.3.1
+
+2013-03-17: Version 0.0.5
   - skip changing channel when pressing OK button on the same channel
-  - added alternative key layout for fast browse mode 
+  - added alternative key layout for fast browse mode
     (up/down switches channels, left/right next/previous epg item)
   - updated Makefile for vdr-1.7.34+
   - reformatted code
@@ -14,11 +18,11 @@ VDR Plugin 'zappilot' Revision History
   - Added fast browse
   - Moved homepage to http://projects.vdr-developer.org/projects/show/plg-zappilot
 
-2007-08-21: Version 0.0.3 
+2007-08-21: Version 0.0.3
   - Added support for gettext (VDR >= 1.5.7)
   - Clean the code, correct minors bugs
 
-2006-04-30: Version 0.0.2 
+2006-04-30: Version 0.0.2
   - plugin is accessible from Main Menu
   - VDR's new APIVERSION feature
   - Maintenance release for vdr-1.4+
